@@ -94,6 +94,7 @@ if(ENABLE_STATIC)
 	add_library(ortp-static STATIC ${ORTP_HEADER_FILES} ${ORTP_SOURCE_FILES_C} ${ORTP_SOURCE_FILES_CXX})
 	set_target_properties(ortp-static PROPERTIES OUTPUT_NAME ortp)
 	target_compile_definitions(ortp-static PRIVATE "ORTP_EXPORTS")
+	target_include_directories(ortp-static PUBLIC ${BCTOOLBOX_CORE_INCLUDE_DIRS})
 	target_link_libraries(ortp-static INTERFACE ${LIBS})
 	install(TARGETS ortp-static EXPORT ${EXPORT_TARGET_NAME}Targets
 		ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
